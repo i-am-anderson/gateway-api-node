@@ -11,6 +11,7 @@
     "install:gateway": "yarn --cwd ./gateway-api install",
     "install:users": "yarn --cwd ./users-api install",
     "install:products": "yarn --cwd ./products-api install",
+    "install:concurrently": "yarn add concurrently",
     "install:all": "yarn run install:concurrently && concurrently \"yarn install:gateway\" \"yarn install:users\" \"yarn install:products\""
   },
   "devDependencies": {
