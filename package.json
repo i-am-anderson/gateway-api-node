@@ -1,0 +1,15 @@
+{
+  "name": "gateway-api-node",
+  "version": "1.0.0",
+  "main": "",
+  "license": "MIT",
+  "scripts": {
+    "start:gateway": "yarn --cwd ./gateway-api start",
+    "start:users": "yarn --cwd ./users-api start",
+    "start:products": "yarn --cwd ./products-api start",
+    "start:all": "concurrently \"yarn start:gateway\" \"yarn start:users\" \"yarn start:products\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
