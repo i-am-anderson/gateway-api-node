@@ -14,7 +14,7 @@
     "install:concurrently": "yarn add concurrently",
     "install:all": "yarn run install:concurrently && concurrently \"yarn install:gateway\" \"yarn install:users\" \"yarn install:products\""
   },
-  "devDependencies": {
+  "dependencies": {
     "concurrently": "^9.1.0"
   }
 }
