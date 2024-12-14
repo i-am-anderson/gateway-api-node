@@ -5,7 +5,7 @@ const app = express();
 const port = 3301;
 
 app.get("/products", (req, res) => {
-  res.status(200).send({ response: "This is the Products API!" });
+  res.status(200).send({ code: 200, response: "This is the Products API!" });
 });
 
 app.get("/products/:id", (req, res) => {
@@ -16,10 +16,10 @@ app.get("/products/:id", (req, res) => {
   });
 
   if (!response) {
-    return res.status(204).send({ response: "No content" });
+    return res.status(404).send({ code: 404, response: "Not found" });
   }
 
-  res.status(200).send({ response });
+  res.status(200).send({ code: 200, response });
 });
 
 app.listen(port, () => {

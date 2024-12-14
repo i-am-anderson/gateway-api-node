@@ -8,10 +8,14 @@ const usersServiceproxy = httpProxy(USERS_API_URL);
 const productsServiceproxy = httpProxy(PRODUCTS_API_URL);
 
 app.get("/", (req, res) => {
-  res.status(200).send({ response: "This is the Geteway API!" });
+  res.status(200).send({ code: 200, response: "This is the Geteway API!" });
 });
 
 app.get("/users", (req, res, next) => {
+  usersServiceproxy(req, res, next);
+});
+
+app.get("/users/create/:qty", (req, res, next) => {
   usersServiceproxy(req, res, next);
 });
 
@@ -28,7 +32,7 @@ app.get("/products/:id", (req, res, next) => {
 });
 
 app.use((req, res) => {
-  res.status(404).send({ error: "Route not found!" });
+  res.status(404).send({ code: 404, error: "Route not found!" });
 });
 
 app.listen(port, () => {

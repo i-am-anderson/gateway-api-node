@@ -4,6 +4,10 @@
   "main": "",
   "license": "MIT",
   "scripts": {
+    "dev:gateway": "yarn --cwd ./gateway-api dev",
+    "dev:users": "yarn --cwd ./users-api dev",
+    "dev:products": "yarn --cwd ./products-api dev",
+    "dev:all": "concurrently \"yarn dev:gateway\" \"yarn dev:users\" \"yarn dev:products\"",
     "start:gateway": "yarn --cwd ./gateway-api start",
     "start:users": "yarn --cwd ./users-api start",
     "start:products": "yarn --cwd ./products-api start",
