@@ -1,14 +1,14 @@
-const express = require("express");
-const httpProxy = require("express-http-proxy");
+import express from "express";
+import httpProxy from "express-http-proxy";
 const app = express();
 const port = 3300;
-const { USERS_API_URL, PRODUCTS_API_URL } = require("./URLs");
+import { USERS_API_URL, PRODUCTS_API_URL } from "./URLs.js";
 
 const usersServiceproxy = httpProxy(USERS_API_URL);
 const productsServiceproxy = httpProxy(PRODUCTS_API_URL);
 
 app.get("/", (req, res) => {
-  res.status(200).send({ code: 200, response: "This is the Geteway API!" });
+  res.status(200).send({ code: 200, response: "This is the Gateway API!" });
 });
 
 app.get("/users", (req, res, next) => {
@@ -20,6 +20,10 @@ app.get("/users/create/:qty", (req, res, next) => {
 });
 
 app.get("/users/:id", (req, res, next) => {
+  usersServiceproxy(req, res, next);
+});
+
+app.get("/users/discord/:discord/:webhook", (req, res, next) => {
   usersServiceproxy(req, res, next);
 });
 

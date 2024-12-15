@@ -7001,4 +7001,4 @@ const mockup = [
   },
 ];
 
-module.exports = mockup;
+export default mockup;

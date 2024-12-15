@@ -877,4 +877,4 @@ const create_user = (length) =>
     };
   });
 
-module.exports = create_user;
+export default create_user;

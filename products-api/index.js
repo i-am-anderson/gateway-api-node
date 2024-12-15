@@ -1,5 +1,5 @@
-const express = require("express");
-const mockup = require("./mockup");
+import express from "express";
+import mockup from "./mockup.js";
 
 const app = express();
 const port = 3301;
@@ -11,7 +11,7 @@ app.get("/products", (req, res) => {
 app.get("/products/:id", (req, res) => {
   const id = req.params.id;
 
-  const response = mockup.find((item) => {
+  const response = find((item) => {
     return Number(item.id) === Number(id);
   });
 
